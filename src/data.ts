@@ -1,10 +1,12 @@
-import { ShieldCheck, Sparkles, Wrench, type LucideIcon } from 'lucide-react'
+import { ScanLine, Sparkles, Truck, Wrench, type LucideIcon } from 'lucide-react'
 
 export const business = {
   phone: '478-244-9596',
   phoneLink: 'tel:+14782449596',
   email: 'Integrityglass.26@gmail.com',
   serviceArea: 'Middle Georgia area (sample; confirm coverage)',
+  website: 'https://integrityglassservices.com',
+  googleReviewUrl: '',
 }
 
 export type Service = {
@@ -21,29 +23,56 @@ export const services: Service[] = [
   {
     number: '01',
     icon: Sparkles,
-    title: 'Windshield repair',
-    summary: 'Small chips and short cracks repaired before they spread, when the damage is a good candidate.',
-    note: 'Fast, focused repair',
-    detail: 'A repair may restore strength and improve the appearance of minor windshield damage without replacing the whole glass. The technician checks the size, type, location, and age of the damage first.',
-    considerations: ['Impact size and number', 'Distance from the glass edge', 'Whether the damage is in the driver’s direct sightline'],
+    title: 'Windshield repair & replacement',
+    summary: 'Windshield repair when suitable, or replacement when damage or vehicle requirements call for it.',
+    note: 'Repair or replacement options',
+    detail: 'We assess windshield damage and vehicle requirements to help determine whether repair or replacement is appropriate. Replacement glass and installation requirements can vary by year, make, model, and trim.',
+    considerations: ['Damage size, type, and location', 'Vehicle-specific glass and installation information', 'Camera or sensor calibration needs after replacement'],
   },
   {
     number: '02',
-    icon: ShieldCheck,
-    title: 'Windshield replacement',
-    summary: 'A careful replacement with glass selected for your vehicle and its equipment.',
-    note: 'Vehicle-specific glass',
-    detail: 'When damage cannot be safely repaired, replacement restores the windshield opening. Glass options, moldings, and any camera or sensor calibration needs are confirmed for the vehicle before booking.',
-    considerations: ['Year, make, model, and trim', 'Rain sensors, cameras, and driver-assistance features', 'Glass availability and any required calibration'],
+    icon: ScanLine,
+    title: 'ADAS calibration',
+    summary: 'Calibration support for vehicles whose cameras or driver-assistance sensors are affected by glass service.',
+    note: 'Vehicle-specific requirements',
+    detail: 'Some vehicles require camera or sensor calibration after windshield replacement or related work. Requirements vary, so the vehicle information and manufacturer procedures need to be checked for each job.',
+    considerations: ['Year, make, model, trim, and installed systems', 'Manufacturer calibration procedures', 'Required post-calibration documentation'],
   },
   {
     number: '03',
+    icon: Sparkles,
+    title: 'Rock-chip repair',
+    summary: 'Targeted repair for eligible stone chips before damage grows or spreads.',
+    note: 'Damage assessment first',
+    detail: 'A rock-chip repair fills and stabilizes eligible impact damage. Results depend on the chip type, size, age, cleanliness, and position; repair may remain visible and cannot be guaranteed to make glass look new.',
+    considerations: ['Chip type, size, age, and cleanliness', 'Location relative to the edge and driver view', 'Whether the damage has begun to spread'],
+  },
+  {
+    number: '04',
+    icon: Wrench,
+    title: 'Custom-cut glass',
+    summary: 'Custom glass solutions for applications that need a measured, made-to-fit pane.',
+    note: 'Confirm material and fitment',
+    detail: 'Custom-cut glass starts with the opening, intended application, glass type, thickness, edge details, and any safety or regulatory requirements. Confirm feasibility and specifications before ordering.',
+    considerations: ['Exact measurements and template', 'Application, material, thickness, and edge finish', 'Applicable safety-glazing requirements'],
+  },
+  {
+    number: '05',
+    icon: Truck,
+    title: 'Heavy equipment installation',
+    summary: 'Glass installation for select heavy equipment and work vehicles.',
+    note: 'Equipment details required',
+    detail: 'Equipment glass can differ by machine, cab, model year, and operating environment. Provide the equipment make, model, serial details if available, and glass location to confirm parts and installation options.',
+    considerations: ['Equipment make, model, and serial information', 'Cab opening, curves, seals, and mounting method', 'Site access, equipment condition, and scheduling'],
+  },
+  {
+    number: '06',
     icon: Wrench,
     title: 'Side & rear glass',
-    summary: 'Help with broken door, quarter, and back glass, with cleanup discussed for your vehicle.',
-    note: 'Most makes and models',
-    detail: 'Side and rear glass often need replacement rather than repair. Share which window is damaged and whether the vehicle is secure so the right part and service plan can be identified.',
-    considerations: ['Which panel is broken', 'Tint, defrost, and antenna features', 'Safe temporary covering and cleanup needs'],
+    summary: 'Replacement help for damaged door, quarter, and back glass.',
+    note: 'Vehicle-specific fitment',
+    detail: 'Side and rear glass often need replacement rather than repair. Share which panel is damaged and whether the vehicle is secure so the correct part and service plan can be identified.',
+    considerations: ['Which panel is damaged', 'Tint, defrost, antenna, and trim features', 'Safe temporary covering and cleanup needs'],
   },
 ]
 
@@ -86,4 +115,53 @@ export const faqs = [
     question: 'How do I get an accurate price?',
     answer: 'Send the vehicle year, make, model, trim, damaged glass location, ZIP code, and any sensor or camera details you know. The listed ranges are examples only and are not a confirmed quote.',
   },
+  {
+    question: 'Can you calibrate ADAS after windshield replacement?',
+    answer: 'ADAS calibration is available for applicable service needs. Whether a vehicle requires static, dynamic, or another manufacturer-specified procedure depends on the vehicle. Confirm the required procedure and documentation when requesting an estimate.',
+  },
+  {
+    question: 'Do you repair rock chips?',
+    answer: 'Rock-chip repair is available when the damage is a suitable candidate. Chip size, location, type, and condition affect eligibility, and some repair marks can remain visible.',
+  },
+  {
+    question: 'Do you install custom-cut glass or heavy equipment glass?',
+    answer: 'Custom-cut glass and heavy equipment installations are listed services. Feasibility depends on measurements, application, equipment details, glass specifications, and applicable safety requirements; contact the shop to confirm.',
+  },
+  {
+    question: 'Is Integrity Glass AGSC certified or registered?',
+    answer: 'AGSC technician certification, registered-company status, and independent validation are separate programs. Ask Integrity Glass to confirm its current participation and technician credentials before booking. This website does not claim an unverified AGSC membership or certification.',
+  },
 ]
+
+export const pageMetadata = {
+  '/': {
+    title: 'Integrity Glass | Auto Glass Repair & ADAS Calibration',
+    description: 'Integrity Glass offers windshield repair and replacement, rock-chip repair, ADAS calibration, custom-cut glass, and heavy equipment glass installation. Call 478-244-9596.',
+    keywords: 'Integrity Glass, auto glass repair, windshield repair, windshield replacement, rock chip repair, ADAS calibration, custom cut glass, heavy equipment glass installation',
+  },
+  '/services': {
+    title: 'Auto Glass Services | Integrity Glass',
+    description: 'Explore windshield repair and replacement, rock-chip repair, ADAS calibration, custom-cut glass, and heavy equipment glass installation from Integrity Glass.',
+    keywords: 'windshield repair and replacement, rock chip repair, ADAS calibration, custom-cut glass, heavy equipment glass installation, auto glass services',
+  },
+  '/pricing': {
+    title: 'Auto Glass Pricing & Estimates | Integrity Glass',
+    description: 'Review sample auto glass price ranges and learn what affects a vehicle-specific quote, including glass options, ADAS calibration, availability, and equipment details.',
+    keywords: 'auto glass pricing, windshield replacement estimate, rock chip repair cost, ADAS calibration estimate, custom glass quote, heavy equipment glass quote',
+  },
+  '/promise': {
+    title: 'Auto Glass Safety & AGSC Standards | Integrity Glass',
+    description: 'Learn how Integrity Glass approaches auto glass safety, the AGSC/AGRSS replacement standard, vehicle-specific procedures, adhesives, and ADAS calibration.',
+    keywords: 'AGSC auto glass standards, AGRSS, auto glass safety, windshield installation safety, ADAS calibration, glass technician training',
+  },
+  '/faq': {
+    title: 'Auto Glass Repair & ADAS Calibration FAQs | Integrity Glass',
+    description: 'Answers about windshield and rock-chip repair, replacement, ADAS calibration, custom-cut glass, heavy equipment installations, pricing, and warranty terms.',
+    keywords: 'auto glass FAQ, windshield repair questions, rock chip repair, ADAS calibration questions, heavy equipment glass, custom cut glass',
+  },
+  '/contact': {
+    title: 'Contact Integrity Glass | Request an Auto Glass Quote',
+    description: 'Contact Integrity Glass for windshield repair and replacement, rock-chip repair, ADAS calibration, custom-cut glass, and heavy equipment installation. Call 478-244-9596.',
+    keywords: 'contact Integrity Glass, auto glass quote, windshield estimate, ADAS calibration appointment, custom glass, heavy equipment glass installation',
+  },
+}

@@ -47,9 +47,9 @@ export function HomePage() {
       </section>
 
       <section className="service-strip" aria-label="Service highlights">
-        <div><span className="strip-number">01</span><span>Auto glass repair</span></div>
-        <div><span className="strip-number">02</span><span>Replacement & calibration</span></div>
-        <div><span className="strip-number">03</span><span>Mobile appointments*</span></div>
+        <div><span className="strip-number">01</span><span>Windshield repair & replacement</span></div>
+        <div><span className="strip-number">02</span><span>ADAS calibration</span></div>
+        <div><span className="strip-number">03</span><span>Rock-chip repair</span></div>
         <div className="strip-area"><MapPin size={17} aria-hidden="true" /><span>Middle Georgia area*</span></div>
       </section>
 
@@ -74,6 +74,14 @@ export function HomePage() {
         <div className="home-promise-image" role="img" aria-label="Careful automotive service work"><span>THE DIFFERENCE IS IN THE DETAILS</span></div>
       </section>
 
+      <section className="home-standards">
+        <div className="standards-mark"><ShieldCheck size={31} aria-hidden="true" /><span>SAFETY<br />BY DESIGN</span></div>
+        <div><p className="eyebrow">Auto glass safety</p><h2>Replacement work deserves <em>a safety-first process.</em></h2><p>Our workflow is organized around AGSC/AGRSS safety principles: vehicle-specific procedures, correct materials, and calibration checks when required.</p></div>
+        <Link className="text-link" to="/promise">How we approach the standard<ArrowRight size={16} aria-hidden="true" /></Link>
+      </section>
+
+      <GoogleReviewsPanel />
+
       <section className="steps-section home-steps">
         <div className="section-heading steps-heading"><div><p className="eyebrow">Simple from the first call</p><h2>Three steps to <em>clear.</em></h2></div><p>Tell us what happened. We’ll take it from there, one straightforward step at a time.</p></div>
         <div className="steps-grid">
@@ -90,7 +98,7 @@ export function HomePage() {
 export function ServicesPage() {
   return (
     <>
-      <PageIntro eyebrow="Auto glass services" title="The right fix." accent="Done with care." description="Understand your repair and replacement options. Service recommendations depend on the damage, the vehicle, and the glass specifications." />
+      <PageIntro eyebrow="Auto glass services" title="The right fix." accent="Done with care." description="Windshield repair and replacement, ADAS calibration, rock-chip repair, custom-cut glass, and heavy equipment installations. Service recommendations depend on damage, fitment, and applicable safety requirements." />
       <section className="detail-service-list" aria-label="Service details">
         {services.map(({ number, icon: Icon, title, detail, considerations, note }) => (
           <article className="detail-service" key={number}>
@@ -103,6 +111,7 @@ export function ServicesPage() {
         <div><p className="eyebrow">Safety comes first</p><h2>Glass is part of your vehicle’s <em>safety system.</em></h2></div>
         <div><p>Windshields help support the vehicle structure and may house cameras and sensors. If replacement is needed, confirm whether your vehicle requires calibration and how that is handled before scheduling.</p><p>For a useful first assessment, share the year, make, model, trim, damage location, and a clear photo if available.</p></div>
       </section>
+      <section className="service-safety-note"><ShieldCheck size={24} aria-hidden="true" /><p>For windshield replacement, we check vehicle-specific installation requirements and whether the vehicle’s driver-assistance systems need calibration. Ask what procedure and documentation apply to your vehicle.</p><Link className="text-link" to="/promise">AGSC safety approach<ArrowRight size={16} aria-hidden="true" /></Link></section>
       <Callout title="Not sure which service fits?" text="Describe the damage and your vehicle. We’ll help identify what information is needed for an accurate quote." />
     </>
   )
@@ -151,6 +160,21 @@ export function PromisePage() {
           <article><span>04</span><div><h3>Stand behind the work</h3><p>The business card advertises a lifetime warranty. Request the current written terms and keep them with your service records.</p></div></article>
         </div>
       </section>
+      <section className="agsc-section" aria-labelledby="agsc-title">
+        <div className="agsc-heading">
+          <p className="eyebrow">Safety standards</p>
+          <h2 id="agsc-title">AGSC/AGRSS principles.<br /><em>Applied with care.</em></h2>
+          <p>The Auto Glass Safety Council (AGSC) publishes the ANSI/AGSC/AGRSS 005 standard for proper auto glass replacement. The practices below describe the safety-focused workflow Integrity Glass should follow; confirm each step reflects current shop procedures.</p>
+          <div className="agsc-links"><a className="text-link" href="https://agsc.org/wp-content/uploads/2024/07/ANSIAGSCAGRSS005-2022-1.pdf" target="_blank" rel="noreferrer">Read the AGSC/AGRSS standard<ArrowRight size={16} aria-hidden="true" /></a><a className="text-link" href="https://agsc.org/wp-content/uploads/2024/11/AGRSS-Compliance-Checklist-7-14-2023.pdf" target="_blank" rel="noreferrer">View the AGSC compliance checklist<ArrowRight size={16} aria-hidden="true" /></a></div>
+        </div>
+        <div className="agsc-practices">
+          <article><span>01</span><div><h3>Check the vehicle requirements</h3><p>Identify the exact vehicle, glass configuration, applicable installation instructions, and any manufacturer-specific requirements before work begins.</p></div></article>
+          <article><span>02</span><div><h3>Use compatible materials and procedures</h3><p>Confirm the replacement glass, adhesives, preparation steps, and handling instructions for the application; observe product instructions and safe-drive-away guidance.</p></div></article>
+          <article><span>03</span><div><h3>Address ADAS when required</h3><p>Check whether windshield replacement affects cameras or sensors, follow applicable vehicle-maker calibration procedures, and confirm the outcome with the customer.</p></div></article>
+          <article><span>04</span><div><h3>Keep the work clear and accountable</h3><p>Explain repair versus replacement options, timing, and any calibration needs. Ask for the service details and warranty terms in writing.</p></div></article>
+        </div>
+        <p className="agsc-disclosure">AGSC technician certification, registered-company membership, and independent validation are distinct programs. This page describes Integrity Glass’s intended safety approach; it does not claim an unverified AGSC credential, membership, or audit. The shop should verify each listed step reflects current procedures before publishing. Confirm technician credentials and job-specific procedures directly before service.</p>
+      </section>
       <section className="warranty-note"><ShieldCheck size={28} aria-hidden="true"/><div><h2>Ask about warranty coverage.</h2><p>Coverage, exclusions, and claim steps should be provided in writing for your specific service.</p></div><Link className="text-link" to="/faq">Warranty questions<ArrowRight size={16} aria-hidden="true" /></Link></section>
       <Callout title="A good conversation comes first." text="Talk through the damage, the options, and the written terms before booking." />
     </>
@@ -195,14 +219,30 @@ export function ContactPage() {
               <h3>Request a quote</h3><p>Fields marked with <span aria-hidden="true">*</span> are required.</p>
               <div className="form-row"><label>Your name *<input name="name" autoComplete="name" required placeholder="Name" /></label><label>Phone *<input name="phone" type="tel" autoComplete="tel" required placeholder="(555) 555-5555" /></label></div>
               <label>Email<input name="email" type="email" autoComplete="email" placeholder="you@example.com" /></label>
-              <div className="form-row"><label>Vehicle<input name="vehicle" placeholder="Year, make & model" /></label><label>Service needed<select name="service" defaultValue=""><option value="" disabled>Select one</option><option>Chip repair</option><option>Windshield replacement</option><option>Side or rear glass</option><option>Not sure yet</option></select></label></div>
+              <div className="form-row"><label>Vehicle<input name="vehicle" placeholder="Year, make & model" /></label><label>Service needed<select name="service" defaultValue=""><option value="" disabled>Select one</option>{services.map((service) => <option key={service.number}>{service.title}</option>)}<option>Not sure yet</option></select></label></div>
               <label>What happened?<textarea name="message" rows={3} placeholder="Describe the damage and your ZIP code" /></label>
               <button className="button button-blue form-submit" type="submit">Review my request<ArrowRight size={17} aria-hidden="true" /></button><small className="form-note">Demo only: this form does not transmit or store your information.</small>
             </form>
           )}
         </div>
       </section>
+      <section className="qr-section" aria-labelledby="qr-title">
+        <div><p className="eyebrow">Keep us close</p><h2 id="qr-title">Scan to visit <em>our website.</em></h2><p>Point your camera at the code to open Integrity Glass online.</p><a className="text-link" href={business.website}>{business.website.replace('https://', '')}<ArrowRight size={16} aria-hidden="true" /></a></div>
+        <a className="qr-image-link" href={business.website} aria-label="Open Integrity Glass website">
+          <img src="/integrityglass-qr.png" width="220" height="220" alt="QR code linking to integrityglassservices.com" />
+        </a>
+      </section>
     </>
+  )
+}
+
+function GoogleReviewsPanel() {
+  return (
+    <section className="google-reviews" aria-labelledby="google-reviews-title">
+      <div className="google-mark" aria-hidden="true">G</div>
+      <div className="google-review-copy"><p className="eyebrow">Customer feedback</p><h2 id="google-reviews-title">Google reviews</h2><p>We’ll link this section to the official Integrity Glass Business Profile after the listing is live. No sample ratings or reviews are shown.</p></div>
+      {business.googleReviewUrl ? <a className="button button-blue" href={business.googleReviewUrl} target="_blank" rel="noreferrer">Read our Google reviews<ArrowRight size={17} aria-hidden="true" /></a> : <span className="review-setup-status">Profile connection pending</span>}
+    </section>
   )
 }
 

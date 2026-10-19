@@ -371,3 +371,69 @@ h2 { margin-bottom: 0; font-size: clamp(42px, 5.2vw, 68px); line-height: .98; te
   .warranty-note .text-link { margin-left: 46px; }
   .faq-page-aside h2 { font-size: 46px; }
 }
+
+.home-standards { display: grid; grid-template-columns: 90px 1fr auto; align-items: center; gap: 25px; padding: 50px 8%; background: #e9edf3; }
+.standards-mark { width: 78px; height: 78px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 4px; color: var(--blue); border: 1px solid #aab9d4; }
+.standards-mark span { font-size: 8px; line-height: 1.25; font-weight: 700; letter-spacing: .08em; text-align: center; }
+.home-standards .eyebrow { margin-bottom: 9px; }
+.home-standards h2 { max-width: 650px; font-size: clamp(32px, 3.7vw, 48px); }
+.home-standards > div:nth-child(2) > p:last-child { max-width: 650px; margin: 13px 0 0; color: var(--muted); font-size: 12px; line-height: 1.65; }
+.home-standards > .text-link { max-width: 185px; }
+.google-reviews { display: grid; grid-template-columns: 48px 1fr auto; align-items: center; gap: 20px; padding: 44px 8%; background: var(--white); border-bottom: 1px solid var(--line); }
+.google-mark { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid var(--line); color: #4285f4; font: 700 27px Arial, sans-serif; }
+.google-review-copy .eyebrow { margin-bottom: 6px; }
+.google-review-copy h2 { font-size: 31px; }
+.google-review-copy > p:last-child { max-width: 590px; margin: 8px 0 0; color: var(--muted); font-size: 11px; line-height: 1.6; }
+.review-setup-status { color: var(--muted); font-size: 11px; font-weight: 700; text-align: right; }
+.agsc-section { padding: 84px 8%; background: #e9edf3; }
+.agsc-heading { display: grid; grid-template-columns: 1fr 1fr; column-gap: 9%; align-items: end; margin-bottom: 38px; }
+.agsc-heading .eyebrow { grid-column: 1 / -1; margin-bottom: 14px; }
+.agsc-heading h2 { font-size: clamp(42px, 5vw, 61px); }
+.agsc-heading > p:not(.eyebrow) { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
+.agsc-links { grid-column: 2; display: grid; justify-items: start; gap: 10px; margin-top: 17px; }
+.agsc-practices { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid #c9cdd3; }
+.agsc-practices article { display: grid; grid-template-columns: 36px 1fr; gap: 13px; padding: 22px 28px 22px 0; border-bottom: 1px solid #c9cdd3; }
+.agsc-practices article:nth-child(2n) { padding-left: 25px; border-left: 1px solid #c9cdd3; }
+.agsc-practices article > span { color: var(--blue); font: 700 16px 'Barlow Condensed', sans-serif; }
+.agsc-practices h3 { margin: 0 0 7px; font: 700 22px 'Barlow Condensed', sans-serif; text-transform: uppercase; }
+.agsc-practices p { max-width: 475px; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.agsc-disclosure { margin: 22px 0 0; color: #62676c; font-size: 10px; line-height: 1.65; }
+.service-safety-note { display: flex; align-items: center; gap: 15px; padding: 24px 8%; background: #e9edf3; }
+.service-safety-note > svg { flex: 0 0 auto; color: var(--blue); }
+.service-safety-note > p { flex: 1; max-width: 720px; margin: 0; color: #4f5459; font-size: 12px; line-height: 1.65; }
+.service-safety-note .text-link { white-space: nowrap; }
+.qr-section { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 40px; padding: 62px 8%; background: #e9edf3; }
+.qr-section h2 { font-size: clamp(39px, 4.7vw, 57px); }
+.qr-section > div > p:not(.eyebrow) { margin: 16px 0; color: var(--muted); font-size: 13px; }
+.qr-image-link { display: block; padding: 13px; background: var(--white); border: 1px solid var(--line); }
+.qr-image-link img { width: 190px; height: 190px; display: block; image-rendering: pixelated; }
+
+@media (max-width: 900px) {
+  .home-standards, .google-reviews, .agsc-section, .qr-section { padding-left: 6%; padding-right: 6%; }
+}
+
+@media (max-width: 680px) {
+  .home-standards { grid-template-columns: 58px 1fr; gap: 15px; padding-top: 37px; padding-bottom: 37px; }
+  .standards-mark { width: 55px; height: 62px; }
+  .standards-mark svg { width: 24px; }
+  .home-standards h2 { font-size: 36px; }
+  .home-standards > .text-link { grid-column: 2; max-width: none; }
+  .google-reviews { grid-template-columns: 40px 1fr; gap: 13px; padding-top: 35px; padding-bottom: 35px; }
+  .google-mark { width: 38px; height: 38px; font-size: 23px; }
+  .google-review-copy h2 { font-size: 28px; }
+  .review-setup-status, .google-reviews > .button { grid-column: 2; justify-self: start; text-align: left; }
+  .agsc-section { padding-top: 59px; padding-bottom: 59px; }
+  .agsc-heading { grid-template-columns: 1fr; gap: 16px; margin-bottom: 26px; }
+  .agsc-heading .eyebrow, .agsc-links { grid-column: 1; }
+  .agsc-heading h2 { font-size: 45px; }
+  .agsc-practices { grid-template-columns: 1fr; }
+  .agsc-practices article, .agsc-practices article:nth-child(2n) { padding: 18px 0; border-left: 0; }
+  .service-safety-note { align-items: flex-start; flex-wrap: wrap; padding: 22px 6%; }
+  .service-safety-note > p { flex: 1 1 calc(100% - 45px); }
+  .service-safety-note .text-link { margin-left: 39px; }
+  .qr-section { grid-template-columns: 1fr auto; gap: 16px; padding-top: 48px; padding-bottom: 48px; }
+  .qr-section h2 { font-size: 40px; }
+  .qr-section > div > p:not(.eyebrow) { font-size: 11px; line-height: 1.6; }
+  .qr-image-link { padding: 7px; }
+  .qr-image-link img { width: 116px; height: 116px; }
+}
