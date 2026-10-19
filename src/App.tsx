@@ -9,10 +9,11 @@ function RouteEffects() {
 
   useEffect(() => {
     window.scrollTo(0, 0)
-    const metadata = pageMetadata[pathname as keyof typeof pageMetadata]
+    const normalizedPath = pathname.replace(/\/+$/, '') || '/'
+    const metadata = pageMetadata[normalizedPath as keyof typeof pageMetadata]
     const title = metadata?.title ?? 'Page Not Found | Integrity Glass'
     const description = metadata?.description ?? 'Integrity Glass provides auto glass repair, replacement, calibration, and specialty glass services.'
-    const canonicalUrl = `${business.website}${pathname}`
+    const canonicalUrl = `${business.website}${normalizedPath}`
 
     document.title = title
     document.querySelector('meta[name="description"]')?.setAttribute('content', description)

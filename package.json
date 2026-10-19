@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "generate:qr": "node scripts/generate-qr.mjs",
-    "build": "npm run generate:qr && tsc -b && vite build",
+    "prepare:deploy": "node scripts/prepare-deploy.mjs",
+    "build": "npm run generate:qr && tsc -b && vite build && npm run prepare:deploy",
     "preview": "vite preview"
   },
   "dependencies": {

@@ -1,4 +1,5 @@
 import { ScanLine, Sparkles, Truck, Wrench, type LucideIcon } from 'lucide-react'
+import pageMetadata from './pageMetadata.json'
 
 export const business = {
   phone: '478-244-9596',
@@ -133,35 +134,4 @@ export const faqs = [
   },
 ]
 
-export const pageMetadata = {
-  '/': {
-    title: 'Integrity Glass | Auto Glass Repair & ADAS Calibration',
-    description: 'Integrity Glass offers windshield repair and replacement, rock-chip repair, ADAS calibration, custom-cut glass, and heavy equipment glass installation. Call 478-244-9596.',
-    keywords: 'Integrity Glass, auto glass repair, windshield repair, windshield replacement, rock chip repair, ADAS calibration, custom cut glass, heavy equipment glass installation',
-  },
-  '/services': {
-    title: 'Auto Glass Services | Integrity Glass',
-    description: 'Explore windshield repair and replacement, rock-chip repair, ADAS calibration, custom-cut glass, and heavy equipment glass installation from Integrity Glass.',
-    keywords: 'windshield repair and replacement, rock chip repair, ADAS calibration, custom-cut glass, heavy equipment glass installation, auto glass services',
-  },
-  '/pricing': {
-    title: 'Auto Glass Pricing & Estimates | Integrity Glass',
-    description: 'Review sample auto glass price ranges and learn what affects a vehicle-specific quote, including glass options, ADAS calibration, availability, and equipment details.',
-    keywords: 'auto glass pricing, windshield replacement estimate, rock chip repair cost, ADAS calibration estimate, custom glass quote, heavy equipment glass quote',
-  },
-  '/promise': {
-    title: 'Auto Glass Safety & AGSC Standards | Integrity Glass',
-    description: 'Learn how Integrity Glass approaches auto glass safety, the AGSC/AGRSS replacement standard, vehicle-specific procedures, adhesives, and ADAS calibration.',
-    keywords: 'AGSC auto glass standards, AGRSS, auto glass safety, windshield installation safety, ADAS calibration, glass technician training',
-  },
-  '/faq': {
-    title: 'Auto Glass Repair & ADAS Calibration FAQs | Integrity Glass',
-    description: 'Answers about windshield and rock-chip repair, replacement, ADAS calibration, custom-cut glass, heavy equipment installations, pricing, and warranty terms.',
-    keywords: 'auto glass FAQ, windshield repair questions, rock chip repair, ADAS calibration questions, heavy equipment glass, custom cut glass',
-  },
-  '/contact': {
-    title: 'Contact Integrity Glass | Request an Auto Glass Quote',
-    description: 'Contact Integrity Glass for windshield repair and replacement, rock-chip repair, ADAS calibration, custom-cut glass, and heavy equipment installation. Call 478-244-9596.',
-    keywords: 'contact Integrity Glass, auto glass quote, windshield estimate, ADAS calibration appointment, custom glass, heavy equipment glass installation',
-  },
-}
+export { pageMetadata }

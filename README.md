@@ -25,6 +25,19 @@ npm run build
 npm run preview
 ```
 
+## Deploy to Porkbun hosting
+
+The live domain must serve the **contents of `dist/`**, not the repository root. The repository-root `index.html` is Vite's development shell and requests `/src/main.tsx`, which is not a production browser file. Uploading that file is the cause of a blank page and a 404 for `/src/main.tsx`.
+
+1. Run `npm run build` locally.
+2. In Porkbun Hosting, open the domain's configured website document root (often `public_html`; verify the path in the hosting panel).
+3. Back up and remove the currently published development files from that document root.
+4. Upload **everything inside `dist/`** to the document root, preserving folders. Do not upload the `dist` folder itself as a nested folder, and do not upload the repository-root `index.html` in place of `dist/index.html`.
+5. Confirm `index.html`, `assets/`, `services/`, `pricing/`, `promise/`, `faq/`, `contact/`, `integrityglass-qr.png`, `robots.txt`, and `sitemap.xml` are directly inside the document root.
+6. Test the homepage and a direct page URL such as `https://integrityglassservices.com/services` in a private browser window.
+
+The build creates static `index.html` files for every existing route so direct URLs work on ordinary directory-index hosting and receive route-specific initial metadata. This workspace cannot change Porkbun's document-root contents, DNS, or hosting settings; the upload must be completed in the Porkbun account.
+
 ## Edit business details
 
 - Update contact details and the service, pricing, and FAQ data in `src/data.ts`.
