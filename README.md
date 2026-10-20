@@ -25,36 +25,19 @@ npm run build
 npm run preview
 ```
 
-## Deploy to GitHub Pages with Porkbun DNS
+## Deploy to Porkbun static hosting
 
-The live domain was checked on 2026-10-19. It resolves to Porkbun web-hosting IPs and serves the repository's development `index.html`, which requests `/src/main.tsx` and receives a 404. GitHub Pages needs the compiled site from `dist/`; pointing the domain at a GitHub repository does not build or deploy a Vite application by itself.
+The source branch `main` contains the Vite development project. Do not configure Porkbun to publish the repository root from `main`: its `index.html` references `/src/main.tsx`, which is only for local development and will 404 on static hosting.
 
-The workflow at `.github/workflows/deploy-pages.yml` builds and deploys `dist/` when changes reach `main` or when manually run from the Actions tab. It includes the custom-domain file and route-specific static entry files.
+The `.github/workflows/deploy-porkbun.yml` workflow builds the site and publishes the **contents of `dist/`** to a dedicated `porkbun-deploy` branch. Vite emits `index.html`, hashed JavaScript, and CSS at the branch root; the existing page URLs are generated as route directories with their own `index.html` files. The QR image, sitemap, robots file, `CNAME`, and `.nojekyll` are also included at the root.
 
-### One-time GitHub setup
+After this workflow has run successfully, configure Porkbun's Git deployment to use:
 
-1. Push this repository and the workflow to GitHub.
-2. In the repository, open **Settings → Pages** and set the publishing source to **GitHub Actions**.
-3. Wait for the `Deploy site to GitHub Pages` workflow to complete successfully in the Actions tab.
-4. Under **Settings → Pages → Custom domain**, enter `integrityglassservices.com` and save. The build includes `dist/CNAME`, but GitHub still requires the custom domain to be configured in repository settings.
-5. After DNS resolves and GitHub provisions TLS, enable **Enforce HTTPS** in Pages settings.
+- Repository: `Dakorias/Integrity-Glass`
+- Branch: `porkbun-deploy`
+- Directory/document root: repository root (`/`)
 
-### Porkbun DNS setup
-
-In Porkbun DNS, remove the current web-hosting/parking A records that resolve the apex domain to `207.207.210.43` and `207.207.210.215`, then point the apex to GitHub Pages with these A records:
-
-```text
-Type  Host  Answer
-A     @     185.199.108.153
-A     @     185.199.109.153
-A     @     185.199.110.153
-A     @     185.199.111.153
-CNAME www   dakorias.github.io
-```
-
-Remove conflicting A/URL-forward records for `www`. DNS changes can take time to propagate. Do not delete unrelated mail (MX/TXT) records. GitHub's current custom-domain instructions should be checked while configuring DNS.
-
-After deployment, check `https://integrityglassservices.com/`, `https://integrityglassservices.com/services/`, and `https://integrityglassservices.com/integrityglass-qr.png`. This workspace cannot change the GitHub Pages setting or Porkbun DNS; those account-side steps are required before the public domain can serve the new build.
+The workflow needs repository Actions permission to write contents so it can create/update `porkbun-deploy`. No GitHub Pages configuration is used. After Porkbun pulls the branch, verify `/`, `/services/`, and `/integrityglass-qr.png` on the custom domain.
 
 ## Edit business details
 
