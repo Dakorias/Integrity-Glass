@@ -23,8 +23,7 @@ export default function Layout() {
       </div>
       <header className="site-header">
         <Link className="brand" to="/" aria-label="Integrity Glass home" onClick={closeMenu}>
-          <span className="brand-mark" aria-hidden="true"><span>IG</span></span>
-          <span className="brand-name">INTEGRITY <b>GLASS</b></span>
+          <img className="brand-logo" src="/integrity-glass-logo.png" alt="Integrity Glass" />
         </Link>
         <button className="menu-toggle" type="button" aria-label={menuOpen ? 'Close navigation' : 'Open navigation'} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? <X size={23} /> : <Menu size={23} />}
@@ -44,8 +43,7 @@ export default function Layout() {
       <footer className="site-footer">
         <div className="footer-main">
           <Link className="brand footer-brand" to="/">
-            <span className="brand-mark" aria-hidden="true"><span>IG</span></span>
-            <span className="brand-name">INTEGRITY <b>GLASS</b></span>
+            <img className="brand-logo" src="/integrity-glass-logo.png" alt="Integrity Glass" />
           </Link>
           <p>Where a handshake still means something.</p>
           <a href={business.phoneLink}>{business.phone}</a>
