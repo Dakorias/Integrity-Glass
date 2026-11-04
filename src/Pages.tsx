@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react'
-import { ArrowDownRight, ArrowRight, Check, MapPin, ShieldCheck } from 'lucide-react'
+import { ArrowDownRight, ArrowRight, Check, Mail, MapPin, Phone, ShieldCheck } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { business, faqs, priceExamples, services } from './data'
 
@@ -199,29 +199,67 @@ export function ContactPage() {
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
+    const formData = new FormData(event.currentTarget)
+    const submittedAt = new Date()
+    const timestamp = submittedAt.toISOString().replace(/\D/g, '').slice(0, 12)
+    const quoteId = `IG-${timestamp}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`
+    const getValue = (name: string) => String(formData.get(name) ?? '').trim() || 'Not provided'
+    const name = getValue('name')
+    const phone = getValue('phone')
+    const email = getValue('email')
+    const vehicle = getValue('vehicle')
+    const service = getValue('service')
+    const message = getValue('message')
+    const subject = `[Quote Request] ${quoteId} | ${name} | ${vehicle}`
+    const body = [
+      'INTEGRITY GLASS QUOTE REQUEST',
+      '================================',
+      `Quote ID: ${quoteId}`,
+      `Received: ${submittedAt.toLocaleString()}`,
+      '',
+      'CUSTOMER',
+      '--------',
+      `Name: ${name}`,
+      `Phone: ${phone}`,
+      `Email: ${email}`,
+      '',
+      'SERVICE DETAILS',
+      '---------------',
+      `Vehicle: ${vehicle}`,
+      `Service requested: ${service}`,
+      `What happened: ${message}`,
+      '',
+      'FOLLOW-UP CHECKLIST',
+      '-------------------',
+      '[ ] Confirm vehicle fitment and glass availability',
+      '[ ] Confirm pricing and appointment timing',
+      '[ ] Confirm calibration or other vehicle-specific requirements',
+    ].join('\n')
+
+    window.location.href = `mailto:${business.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
     setSubmitted(true)
     event.currentTarget.reset()
   }
 
   return (
     <>
-      <PageIntro eyebrow="Contact Integrity Glass" title="Tell us what" accent="happened." description="Share a few details about your vehicle and the damage. This sample form confirms locally in your browser and does not send or store your information." />
+      <PageIntro eyebrow="Contact Integrity Glass" title="Tell us what" accent="happened." description="Share a few details about your vehicle and the damage. Your email app will open a formatted draft addressed to Integrity Glass for you to review and send." />
       <section className="contact-section contact-page-section">
         <div className="contact-info">
           <p className="eyebrow">Start with the details</p><h2>Let’s get you <em>back to clear.</em></h2><p>Call or email directly, or use the sample form to organize the details for your request.</p>
-          <a className="contact-method" href={business.phoneLink}><span className="contact-icon"><ArrowRight size={19} aria-hidden="true" /></span><span><small>Call us directly</small><strong>{business.phone}</strong></span><ArrowRight size={17} aria-hidden="true" /></a>
-          <a className="contact-method" href={`mailto:${business.email}`}><span className="contact-icon"><MapPin size={19} aria-hidden="true" /></span><span><small>Email</small><strong>{business.email}</strong></span><ArrowRight size={17} aria-hidden="true" /></a>
+          <a className="contact-method" href={business.phoneLink}><span className="contact-icon"><Phone size={19} aria-hidden="true" /></span><span><small>Call us directly</small><strong>{business.phone}</strong></span><ArrowRight size={17} aria-hidden="true" /></a>
+          <a className="contact-method" href={`mailto:${business.email}`}><span className="contact-icon"><Mail size={19} aria-hidden="true" /></span><span><small>Email</small><strong>{business.email}</strong></span><ArrowRight size={17} aria-hidden="true" /></a>
           <p className="service-area-note">{business.serviceArea}. Confirm the exact service area and appointment availability before booking.</p>
         </div>
         <div className="quote-panel">
-          {submitted ? <div className="success-state" role="status" aria-live="polite"><div className="success-icon"><Check size={24} aria-hidden="true" /></div><h3>Request noted.</h3><p>This demo form doesn’t send data yet. Call or email Integrity Glass directly to arrange service.</p><button type="button" className="text-link" onClick={() => setSubmitted(false)}>Start another request<ArrowRight size={16} aria-hidden="true" /></button></div> : (
+          {submitted ? <div className="success-state" role="status" aria-live="polite"><div className="success-icon"><Check size={24} aria-hidden="true" /></div><h3>Email draft ready.</h3><p>Your email app should have opened a formatted quote request. Review it and press Send; if it did not open, email Integrity Glass directly.</p><button type="button" className="text-link" onClick={() => setSubmitted(false)}>Start another request<ArrowRight size={16} aria-hidden="true" /></button></div> : (
             <form onSubmit={handleSubmit}>
               <h3>Request a quote</h3><p>Fields marked with <span aria-hidden="true">*</span> are required.</p>
               <div className="form-row"><label>Your name *<input name="name" autoComplete="name" required placeholder="Name" /></label><label>Phone *<input name="phone" type="tel" autoComplete="tel" required placeholder="(555) 555-5555" /></label></div>
               <label>Email<input name="email" type="email" autoComplete="email" placeholder="you@example.com" /></label>
               <div className="form-row"><label>Vehicle<input name="vehicle" placeholder="Year, make & model" /></label><label>Service needed<select name="service" defaultValue=""><option value="" disabled>Select one</option>{services.map((service) => <option key={service.number}>{service.title}</option>)}<option>Not sure yet</option></select></label></div>
               <label>What happened?<textarea name="message" rows={3} placeholder="Describe the damage and your ZIP code" /></label>
-              <button className="button button-blue form-submit" type="submit">Review my request<ArrowRight size={17} aria-hidden="true" /></button><small className="form-note">Demo only: this form does not transmit or store your information.</small>
+              <button className="button button-blue form-submit" type="submit">Prepare email request<ArrowRight size={17} aria-hidden="true" /></button><small className="form-note">This opens your email app with a formatted draft. Nothing is sent or stored by this website.</small>
             </form>
           )}
         </div>

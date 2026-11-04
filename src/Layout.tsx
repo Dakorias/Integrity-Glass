@@ -42,9 +42,7 @@ export default function Layout() {
 
       <footer className="site-footer">
         <div className="footer-main">
-          <Link className="brand footer-brand" to="/">
-            <img className="brand-logo" src="/integrity-glass-logo.png" alt="Integrity Glass" />
-          </Link>
+          <Link className="footer-wordmark" to="/">Integrity <b>Glass</b></Link>
           <p>Where a handshake still means something.</p>
           <a href={business.phoneLink}>{business.phone}</a>
         </div>
