@@ -43,6 +43,7 @@ The workflow needs repository Actions permission to write contents so it can cre
 
 - Update contact details and the service, pricing, and FAQ data in `src/data.ts`.
 - Edit page content in `src/Pages.tsx` and shared navigation/footer in `src/Layout.tsx`.
+- Brand assets live in `public/`: `IntegrityGlass_Header.webp` is the shared header wordmark, `IntegrityGlass_Simplified.webp` replaces the homepage photo's sample brand stamp, and `IntegrityGlass_Icon_512.webp` is the browser favicon. Preserve their transparency and aspect ratios. The header scales fluidly, switches to collapsible navigation at 1050px, and uses compact spacing at 680px; the footer remains text-only for contrast.
 - Replace the sample pricing, mobile-service availability, service area, and warranty language with confirmed business terms before publishing.
 - Confirm the AGSC safety-process statements reflect actual shop procedures and verify any technician certifications, AGSC registration, or audit status before making those claims.
 - Replace the automotive photos in `src/styles.css` with licensed business photography as desired.

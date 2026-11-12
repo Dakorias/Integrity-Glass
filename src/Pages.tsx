@@ -41,7 +41,7 @@ export function HomePage() {
         </div>
         <div className="hero-visual" role="img" aria-label="Modern vehicle ready for auto glass service">
           <div className="image-caption"><span>INTEGRITY IN EVERY DETAIL</span><span>01 / 03</span></div>
-          <div className="image-stamp"><span>IG</span><small>EST.<br />WITH CARE</small></div>
+          <div className="image-stamp" aria-hidden="true"><img src="/IntegrityGlass_Simplified.webp" width="763" height="454" alt="" /></div>
         </div>
         <div className="hero-bottom"><span>Where a handshake still means something.</span><Link to="/pricing">See sample pricing <ArrowDownRight size={15} aria-hidden="true" /></Link></div>
       </section>

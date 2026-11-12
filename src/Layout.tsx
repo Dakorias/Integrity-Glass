@@ -23,12 +23,12 @@ export default function Layout() {
       </div>
       <header className="site-header">
         <Link className="brand" to="/" aria-label="Integrity Glass home" onClick={closeMenu}>
-          <img className="brand-logo" src="/integrity-glass-logo.png" alt="Integrity Glass" />
+          <img className="brand-logo" src="/IntegrityGlass_Header.webp" width="1510" height="390" alt="Integrity Glass" />
         </Link>
-        <button className="menu-toggle" type="button" aria-label={menuOpen ? 'Close navigation' : 'Open navigation'} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
+        <button className="menu-toggle" type="button" aria-label={menuOpen ? 'Close navigation' : 'Open navigation'} aria-expanded={menuOpen} aria-controls="main-navigation" onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? <X size={23} /> : <Menu size={23} />}
         </button>
-        <nav className={menuOpen ? 'main-nav open' : 'main-nav'} aria-label="Main navigation">
+        <nav id="main-navigation" className={menuOpen ? 'main-nav open' : 'main-nav'} aria-label="Main navigation">
           {navigation.map((item) => (
             <NavLink key={item.to} to={item.to} onClick={closeMenu} className={({ isActive }) => isActive ? 'active' : undefined}>
               {item.label}
