@@ -1,7 +1,14 @@
 import { useEffect } from 'react'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import Layout from './Layout'
-import { ContactPage, FAQPage, HomePage, NotFoundPage, PricingPage, PromisePage, ServicesPage } from './Pages'
+import HtmlPage from './HtmlPage'
+import home from './pages/home.html?raw'
+import services from './pages/services.html?raw'
+import pricing from './pages/pricing.html?raw'
+import promise from './pages/promise.html?raw'
+import faq from './pages/faq.html?raw'
+import contact from './pages/contact.html?raw'
+import notFound from './pages/not-found.html?raw'
 import { business, pageMetadata } from './data'
 
 function RouteEffects() {
@@ -35,13 +42,13 @@ function App() {
       <RouteEffects />
       <Routes>
         <Route element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path="services" element={<ServicesPage />} />
-          <Route path="pricing" element={<PricingPage />} />
-          <Route path="promise" element={<PromisePage />} />
-          <Route path="faq" element={<FAQPage />} />
-          <Route path="contact" element={<ContactPage />} />
-          <Route path="*" element={<NotFoundPage />} />
+          <Route index element={<HtmlPage html={home} />} />
+          <Route path="services" element={<HtmlPage html={services} />} />
+          <Route path="pricing" element={<HtmlPage html={pricing} />} />
+          <Route path="promise" element={<HtmlPage html={promise} />} />
+          <Route path="faq" element={<HtmlPage html={faq} />} />
+          <Route path="contact" element={<HtmlPage html={contact} />} />
+          <Route path="*" element={<HtmlPage html={notFound} />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,6 +1,6 @@
 # Integrity Glass Website
 
-A responsive React and TypeScript website for auto glass service. The site has dedicated Home, Services, Pricing, Our Promise, FAQ, and Contact pages. The current content is customizable sample data, and quote requests are handled locally in the browser only.
+A responsive website for auto glass service. Page content is editable HTML; React supplies the shared layout, navigation, and interactive behavior. The current content includes customizable sample data, and quote requests are handled locally in the browser only.
 
 ## Pages
 
@@ -41,14 +41,15 @@ The workflow needs repository Actions permission to write contents so it can cre
 
 ## Edit business details
 
-- Update contact details and the service, pricing, and FAQ data in `src/data.ts`.
-- Edit page content in `src/Pages.tsx` and shared navigation/footer in `src/Layout.tsx`.
-- Brand assets live in `public/`: `IntegrityGlass_Header.webp` is the shared header wordmark, `IntegrityGlass_Simplified.webp` replaces the homepage photo's sample brand stamp, and `IntegrityGlass_Icon_512.webp` is the browser favicon. Preserve their transparency and aspect ratios. The header scales fluidly, switches to collapsible navigation at 1050px, and uses compact spacing at 680px; the footer remains text-only for contrast.
+- Edit each page's content directly in `src/pages/`: `home.html`, `services.html`, `pricing.html`, `promise.html`, `faq.html`, and `contact.html`. The files contain HTML fragments inserted into the shared layout; internal links use normal `<a>` elements.
+- Edit the shared navigation and footer in `src/Layout.tsx`, styling in `src/styles.css`, and route metadata in `src/pageMetadata.json`. The old `src/Pages.tsx` is retained as a migration reference, but is no longer used for rendering pages.
+- Contact details appear in the HTML pages and shared layout. Update the shared phone/email settings in `src/data.ts` and the corresponding text and links in the HTML files. Service options in `src/pages/contact.html` should be kept in sync with `src/pages/services.html`.
+- Brand assets live in `public/`: `IntegrityGlass_Header.webp` is the shared header wordmark, `IntegrityGlass_Icon_512.webp` is the browser favicon, and `IntegrityGlass_Simplified.webp` is available for future use. Preserve their transparency and aspect ratios. The footer remains text-only for contrast.
 - Replace the sample pricing, mobile-service availability, service area, and warranty language with confirmed business terms before publishing.
 - Confirm the AGSC safety-process statements reflect actual shop procedures and verify any technician certifications, AGSC registration, or audit status before making those claims.
 - Replace the automotive photos in `src/styles.css` with licensed business photography as desired.
-- The quote form currently validates in the browser and displays a confirmation. Connect it to a secure form endpoint before using it to receive customer requests.
-- Add the official Google Business Profile review URL to `business.googleReviewUrl` in `src/data.ts` after the profile is created and verified. The site intentionally displays no ratings or review text before that step.
+- The quote form prepares a formatted email draft in the visitor's email app; the visitor must send it. The site does not transmit or store form entries. Connect a secure form endpoint if direct submissions are needed.
+- Add the official Google Business Profile review URL to `business.googleReviewUrl` in `src/data.ts` after the profile is created and verified. The homepage review link is hidden until then.
 - The QR image at `public/integrityglass-qr.png` points to `https://integrityglassservices.com`. Regenerate it with `npm run generate:qr`; production builds also regenerate it automatically.
 - Search metadata is defined per route in `src/data.ts`; `index.html` contains the default description, social tags, canonical URL, and structured business data. Search engines can rewrite snippets, and meta keywords are not a ranking guarantee.
 - `public/robots.txt` and `public/sitemap.xml` are configured for the production domain. Submit the sitemap through Google Search Console and Bing Webmaster Tools after deployment and domain verification.

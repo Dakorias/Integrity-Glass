@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ArrowRight, Menu, ShieldCheck, X } from 'lucide-react'
+import { ArrowRight, Mail, Menu, Phone, X } from 'lucide-react'
 import { Link, NavLink, Outlet } from 'react-router-dom'
 import { business } from './data'
 
@@ -18,8 +18,8 @@ export default function Layout() {
     <>
       <a className="skip-link" href="#main">Skip to content</a>
       <div className="topline">
-        <span>Certified auto glass technicians</span>
-        <span className="topline-right"><ShieldCheck size={15} aria-hidden="true" /> Lifetime warranty advertised*</span>
+        <a href={business.phoneLink}><Phone size={16} aria-hidden="true" />{business.phone}</a>
+        <a href={`mailto:${business.email}`}><Mail size={16} aria-hidden="true" />{business.email}</a>
       </div>
       <header className="site-header">
         <Link className="brand" to="/" aria-label="Integrity Glass home" onClick={closeMenu}>

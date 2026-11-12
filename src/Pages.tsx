@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react'
-import { ArrowDownRight, ArrowRight, Check, Mail, MapPin, Phone, ShieldCheck } from 'lucide-react'
+import { ArrowRight, Check, Mail, Phone, ShieldCheck } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { business, faqs, priceExamples, services } from './data'
 
@@ -28,69 +28,41 @@ export function HomePage() {
       <section className="hero home-hero" aria-labelledby="home-title">
         <div className="hero-copy">
           <p className="eyebrow"><span className="eyebrow-line" />Auto glass repair & replacement</p>
-          <h1 id="home-title">A clear view.<br /><em>A good hand.</em></h1>
-          <p className="hero-lede">Glass work done with care, straight answers, and the kind of follow-through you can count on.</p>
+          <h1 id="home-title">Auto glass repair.<br /><em>Clear answers.</em></h1>
+          <p className="hero-lede">From windshield repair and replacement to ADAS calibration and equipment glass, Integrity Glass is here to help you understand your options.</p>
           <div className="hero-actions">
             <a className="button button-blue" href={business.phoneLink}>Call {business.phone}<ArrowRight size={17} aria-hidden="true" /></a>
-            <Link className="text-link" to="/services">Explore services<ArrowDownRight size={17} aria-hidden="true" /></Link>
-          </div>
-          <div className="hero-proof">
-            <div className="proof-icon"><ShieldCheck size={23} aria-hidden="true" /></div>
-            <p><strong>Lifetime warranty advertised*</strong><span>Ask for the written terms before booking.</span></p>
+            <Link className="text-link" to="/contact">Request a quote<ArrowRight size={17} aria-hidden="true" /></Link>
           </div>
         </div>
         <div className="hero-visual" role="img" aria-label="Modern vehicle ready for auto glass service">
-          <div className="image-caption"><span>INTEGRITY IN EVERY DETAIL</span><span>01 / 03</span></div>
-          <div className="image-stamp" aria-hidden="true"><img src="/IntegrityGlass_Simplified.webp" width="763" height="454" alt="" /></div>
+          <div className="image-caption"><span>INTEGRITY IN EVERY DETAIL</span></div>
         </div>
-        <div className="hero-bottom"><span>Where a handshake still means something.</span><Link to="/pricing">See sample pricing <ArrowDownRight size={15} aria-hidden="true" /></Link></div>
       </section>
 
-      <section className="service-strip" aria-label="Service highlights">
-        <div><span className="strip-number">01</span><span>Windshield repair & replacement</span></div>
-        <div><span className="strip-number">02</span><span>ADAS calibration</span></div>
-        <div><span className="strip-number">03</span><span>Rock-chip repair</span></div>
-        <div className="strip-area"><MapPin size={17} aria-hidden="true" /><span>Middle Georgia area*</span></div>
-      </section>
-
-      <section className="section home-services">
+      <section className="section home-guide" aria-labelledby="home-guide-title">
         <div className="section-heading">
-          <div><p className="eyebrow">What we work on</p><h2>Good work.<br /><em>Clear choices.</em></h2></div>
-          <div><p>From a small chip to a full replacement, get clear options for your glass and your vehicle.</p><Link className="text-link" to="/services">View all services<ArrowRight size={16} aria-hidden="true" /></Link></div>
+          <div><p className="eyebrow">Find your next step</p><h2 id="home-guide-title">The details you need.<br /><em>All in one place.</em></h2></div>
+          <p>Explore your options, learn what affects a quote, or get in touch with Integrity Glass.</p>
         </div>
-        <div className="service-grid">
-          {services.map(({ number, icon: Icon, title, summary, note }) => (
-            <article className="service-item" key={number}>
-              <div className="service-top"><span>{number}</span><Icon size={23} strokeWidth={1.7} aria-hidden="true" /></div>
-              <h3>{title}</h3><p>{summary}</p><span className="service-note"><Check size={14} aria-hidden="true" />{note}</span>
+        <div className="home-guide-grid">
+          {[
+            { to: '/services', title: 'Auto glass services', text: 'Explore windshield and rock-chip repair, replacement, ADAS calibration, custom-cut glass, and heavy equipment glass.' },
+            { to: '/pricing', title: 'Pricing & estimates', text: 'See illustrative price ranges and the vehicle details that affect your estimate.' },
+            { to: '/promise', title: 'Our promise & safety', text: 'Learn about clear communication, careful work, and auto glass safety principles.' },
+            { to: '/faq', title: 'Frequently asked questions', text: 'Find answers about repair, replacement, calibration, availability, and more.' },
+            { to: '/contact', title: 'Contact & quote request', text: 'Call, email, or prepare a quote request in your email app.' },
+          ].map(({ to, title, text }) => (
+            <article className="home-guide-card" key={to}>
+              <h3><Link to={to}>{title}<ArrowRight size={20} aria-hidden="true" /></Link></h3>
+              <p>{text}</p>
             </article>
           ))}
         </div>
-        <Link className="text-link home-service-link" to="/services">Learn about each service<ArrowRight size={16} aria-hidden="true" /></Link>
       </section>
 
-      <section className="home-promise">
-        <div className="home-promise-copy"><p className="eyebrow">The Integrity promise</p><h2>Where a handshake <em>still means something.</em></h2><p>Know what’s being repaired, what it costs, and what to expect before work begins. That’s how good service should feel.</p><Link className="text-link" to="/promise">What you can expect<ArrowRight size={16} aria-hidden="true" /></Link></div>
-        <div className="home-promise-image" role="img" aria-label="Careful automotive service work"><span>THE DIFFERENCE IS IN THE DETAILS</span></div>
-      </section>
-
-      <section className="home-standards">
-        <div className="standards-mark"><ShieldCheck size={31} aria-hidden="true" /><span>SAFETY<br />BY DESIGN</span></div>
-        <div><p className="eyebrow">Auto glass safety</p><h2>Replacement work deserves <em>a safety-first process.</em></h2><p>Our workflow is organized around AGSC/AGRSS safety principles: vehicle-specific procedures, correct materials, and calibration checks when required.</p></div>
-        <Link className="text-link" to="/promise">How we approach the standard<ArrowRight size={16} aria-hidden="true" /></Link>
-      </section>
-
-      <GoogleReviewsPanel />
-
-      <section className="steps-section home-steps">
-        <div className="section-heading steps-heading"><div><p className="eyebrow">Simple from the first call</p><h2>Three steps to <em>clear.</em></h2></div><p>Tell us what happened. We’ll take it from there, one straightforward step at a time.</p></div>
-        <div className="steps-grid">
-          <article><span>01</span><h3>Tell us about it</h3><p>Share your vehicle, glass damage, and ZIP code.</p></article>
-          <article><span>02</span><h3>Get a clear quote</h3><p>We’ll confirm options, price, glass availability, and timing.</p></article>
-          <article><span>03</span><h3>Choose a time</h3><p>Book service once you understand the plan and terms.</p></article>
-        </div>
-      </section>
-      <Callout title="Start with a clear answer." text="Tell us what you drive and what happened. We’ll help you understand the next step." />
+      {business.googleReviewUrl && <GoogleReviewsPanel />}
+      <Callout title="Where a handshake still means something." text="Tell us what you drive and what happened. We’ll help you understand the next step." />
     </>
   )
 }
@@ -98,11 +70,18 @@ export function HomePage() {
 export function ServicesPage() {
   return (
     <>
-      <PageIntro eyebrow="Auto glass services" title="The right fix." accent="Done with care." description="Windshield repair and replacement, ADAS calibration, rock-chip repair, custom-cut glass, and heavy equipment installations. Service recommendations depend on damage, fitment, and applicable safety requirements." />
+      <section className="page-intro services-intro">
+        <div className="services-intro-copy">
+          <p className="eyebrow"><span className="eyebrow-line" />Auto glass services</p>
+          <h1>The right fix.<br /><em>Done with care.</em></h1>
+          <p>Windshield repair and replacement, ADAS calibration, rock-chip repair, custom-cut glass, and heavy equipment installations. Service recommendations depend on damage, fitment, and applicable safety requirements.</p>
+        </div>
+        <div className="services-intro-image" role="img" aria-label="Automotive service work" />
+      </section>
       <section className="detail-service-list" aria-label="Service details">
         {services.map(({ number, icon: Icon, title, detail, considerations, note }) => (
           <article className="detail-service" key={number}>
-            <div className="detail-service-icon"><span>{number}</span><Icon size={27} aria-hidden="true" /></div>
+            <div className="detail-service-icon"><span>{number}</span><Icon size={52} aria-hidden="true" /></div>
             <div className="detail-service-copy"><p className="eyebrow">Service {number}</p><h2>{title}</h2><p>{detail}</p><h3>What we’ll check</h3><ul>{considerations.map((item) => <li key={item}><Check size={15} aria-hidden="true" />{item}</li>)}</ul><span className="service-note"><Check size={14} aria-hidden="true" />{note}</span></div>
           </article>
         ))}
@@ -157,7 +136,7 @@ export function PromisePage() {
           <article><span>01</span><div><h3>Explain the options</h3><p>Understand whether repair or replacement is appropriate and why.</p></div></article>
           <article><span>02</span><div><h3>Confirm before work</h3><p>Review the price, parts, timing, and any calibration requirements ahead of the appointment.</p></div></article>
           <article><span>03</span><div><h3>Handle the vehicle carefully</h3><p>Know how the work area and interior will be protected and what cleanup is included.</p></div></article>
-          <article><span>04</span><div><h3>Stand behind the work</h3><p>The business card advertises a lifetime warranty. Request the current written terms and keep them with your service records.</p></div></article>
+          <article><span>04</span><div><h3>Stand behind the work</h3><p>Ask for the current service and warranty terms in writing and keep them with your service records.</p></div></article>
         </div>
       </section>
       <section className="agsc-section" aria-labelledby="agsc-title">
@@ -278,8 +257,8 @@ function GoogleReviewsPanel() {
   return (
     <section className="google-reviews" aria-labelledby="google-reviews-title">
       <div className="google-mark" aria-hidden="true">G</div>
-      <div className="google-review-copy"><p className="eyebrow">Customer feedback</p><h2 id="google-reviews-title">Google reviews</h2><p>We’ll link this section to the official Integrity Glass Business Profile after the listing is live. No sample ratings or reviews are shown.</p></div>
-      {business.googleReviewUrl ? <a className="button button-blue" href={business.googleReviewUrl} target="_blank" rel="noreferrer">Read our Google reviews<ArrowRight size={17} aria-hidden="true" /></a> : <span className="review-setup-status">Profile connection pending</span>}
+      <div className="google-review-copy"><p className="eyebrow">Customer feedback</p><h2 id="google-reviews-title">Google reviews</h2><p>Read customer feedback on the official Integrity Glass Business Profile.</p></div>
+      <a className="button button-blue" href={business.googleReviewUrl} target="_blank" rel="noreferrer">Read our Google reviews<ArrowRight size={17} aria-hidden="true" /></a>
     </section>
   )
 }

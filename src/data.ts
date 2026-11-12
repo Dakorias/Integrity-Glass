@@ -105,8 +105,8 @@ export const faqs = [
     answer: 'Some vehicles require driver-assistance camera or sensor calibration after windshield replacement. Provide the exact year, make, model, and trim so the technician can confirm what applies.',
   },
   {
-    question: 'What does the lifetime warranty cover?',
-    answer: 'The business card advertises a lifetime warranty. Ask for the current written terms, including what is covered, exclusions, and how to request warranty service.',
+    question: 'What warranty coverage is available?',
+    answer: 'Ask for the current written terms, including what is covered, exclusions, and how to request warranty service.',
   },
   {
     question: 'Can I use insurance?',
