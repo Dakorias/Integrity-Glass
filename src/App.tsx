@@ -8,6 +8,7 @@ import pricing from './pages/pricing.html?raw'
 import promise from './pages/promise.html?raw'
 import faq from './pages/faq.html?raw'
 import contact from './pages/contact.html?raw'
+import adasCalibration from './pages/adas-calibration.html?raw'
 import notFound from './pages/not-found.html?raw'
 import { business, pageMetadata } from './data'
 
@@ -48,6 +49,7 @@ function App() {
           <Route path="promise" element={<HtmlPage html={promise} />} />
           <Route path="faq" element={<HtmlPage html={faq} />} />
           <Route path="contact" element={<HtmlPage html={contact} />} />
+          <Route path="adas-calibration" element={<HtmlPage html={adasCalibration} />} />
           <Route path="*" element={<HtmlPage html={notFound} />} />
         </Route>
       </Routes>

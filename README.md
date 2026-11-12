@@ -9,7 +9,8 @@ A responsive website for auto glass service. Page content is editable HTML; Reac
 - `/pricing` — Sample estimate ranges and price factors
 - `/promise` — Service expectations and warranty questions
 - `/faq` — Common auto glass questions
-- `/contact` — Contact details and demo quote form
+- `/contact` — Contact details and email-draft quote form
+- `/adas-calibration` — Vehicle-specific ADAS calibration information
 
 ## Run locally
 
@@ -46,10 +47,10 @@ The workflow needs repository Actions permission to write contents so it can cre
 - Edit the shared navigation and footer in `src/Layout.tsx`, styling in `src/styles.css`, and route metadata in `src/pageMetadata.json`. The old `src/Pages.tsx` is retained as a migration reference, but is no longer used for rendering pages.
 - Contact details appear in the HTML pages and shared layout. Update the shared phone/email settings in `src/data.ts` and the corresponding text and links in the HTML files. Service options in `src/pages/contact.html` should be kept in sync with `src/pages/services.html`.
 - Brand assets live in `public/`: `IntegrityGlass_Header.webp` is the shared header wordmark, `IntegrityGlass_Icon_512.webp` is the browser favicon, and `IntegrityGlass_Simplified.webp` is available for future use. Preserve their transparency and aspect ratios. The footer remains text-only for contrast.
-- Replace the sample pricing, mobile-service availability, service area, and warranty language with confirmed business terms before publishing.
+- Replace the sample pricing, mobile-service availability, and warranty language with confirmed business terms before publishing. Middle Georgia is the confirmed general service area; check exact ZIP-code coverage and appointment availability with the business.
 - Confirm the AGSC safety-process statements reflect actual shop procedures and verify any technician certifications, AGSC registration, or audit status before making those claims.
 - Replace the automotive photos in `src/styles.css` with licensed business photography as desired.
-- The quote form prepares a formatted email draft in the visitor's email app; the visitor must send it. The site does not transmit or store form entries. Connect a secure form endpoint if direct submissions are needed.
+- The multi-step quote form prepares a formatted email draft in the visitor's email app; the visitor must send it. The site does not transmit or store form entries, and photos must be attached by the visitor in their email app. Connect a secure form endpoint if direct submissions or uploads are needed.
 - Add the official Google Business Profile review URL to `business.googleReviewUrl` in `src/data.ts` after the profile is created and verified. The homepage review link is hidden until then.
 - The QR image at `public/integrityglass-qr.png` points to `https://integrityglassservices.com`. Regenerate it with `npm run generate:qr`; production builds also regenerate it automatically.
 - Search metadata is defined per route in `src/data.ts`; `index.html` contains the default description, social tags, canonical URL, and structured business data. Search engines can rewrite snippets, and meta keywords are not a ranking guarantee.

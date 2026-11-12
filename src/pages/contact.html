@@ -12,35 +12,40 @@
     </p>
     <h2>Let’s get you <em>back to clear.</em>
     </h2>
-    <p>Call or email directly, or use the sample form to organize the details for your request.
+    <p>Call or email directly, or use the form to prepare a structured request in your email app.
     </p><a class="contact-method" href="tel:+14782449596"><span class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span><span><small>Call us directly</small><strong>478-244-9596</strong></span><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a><a class="contact-method" href="mailto:Integrityglass.26@gmail.com"><span class="contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg></span><span><small>Email</small><strong>Integrityglass.26@gmail.com</strong></span><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
-    <p class="service-area-note">Middle Georgia area (sample; confirm coverage). Confirm the exact service area and appointment availability before booking.
+    <p class="service-area-note">Integrity Glass serves Middle Georgia. Confirm your ZIP code and appointment availability before booking.
     </p>
   </div>
   <div class="quote-panel">
     <form data-quote-form>
-      <h3>Request a quote
-      </h3>
-      <p>Fields marked with <span aria-hidden="true">*</span> are required.
-      </p>
-      <div class="form-row">
-        <label>Your name *<input name="name" autoComplete="name" required="" placeholder="Name"/>
-        </label>
-        <label>Phone *<input name="phone" type="tel" autoComplete="tel" required="" placeholder="(555) 555-5555"/>
-        </label>
-      </div>
-      <label>Email<input name="email" type="email" autoComplete="email" placeholder="you@example.com"/>
-      </label>
-      <div class="form-row">
-        <label>Vehicle<input name="vehicle" placeholder="Year, make &amp; model"/>
-        </label>
-        <label>Service needed<select name="service"><option value="" disabled="" selected="">Select one</option><option>Windshield repair &amp; replacement</option><option>ADAS calibration</option><option>Rock-chip repair</option><option>Custom-cut glass</option><option>Heavy equipment installation</option><option>Side &amp; rear glass</option><option>Not sure yet</option></select>
-        </label>
-      </div>
-      <label>What happened?<textarea name="message" rows="3" placeholder="Describe the damage and your ZIP code"></textarea>
-      </label>
-      <button class="button button-blue form-submit" type="submit">Prepare email request<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-      </button><small class="form-note">This opens your email app with a formatted draft. Nothing is sent or stored by this website.</small>
+      <h3>Request a quote</h3>
+      <p>Complete both steps. Required fields are marked <span aria-hidden="true">*</span>.</p>
+      <ol class="quote-progress" aria-label="Quote request progress">
+        <li data-quote-progress="1" aria-current="step"><span>1</span>Contact</li>
+        <li data-quote-progress="2"><span>2</span>Vehicle &amp; damage</li>
+      </ol>
+      <p class="quote-step-status" data-quote-step-status role="status" aria-live="polite">Step 1 of 2: your contact details</p>
+      <fieldset class="quote-step" data-quote-step="1">
+        <legend tabindex="-1">Your contact details</legend>
+        <label>Your name *<input name="name" autocomplete="name" required placeholder="Name" /></label>
+        <label>Phone *<input name="phone" type="tel" autocomplete="tel" required placeholder="(555) 555-5555" /></label>
+        <label>Email<input name="email" type="email" autocomplete="email" placeholder="you@example.com" /></label>
+        <button class="button button-blue form-submit" type="button" data-quote-next>Continue to vehicle details →</button>
+      </fieldset>
+      <fieldset class="quote-step" data-quote-step="2" hidden>
+        <legend tabindex="-1">Vehicle and damage</legend>
+        <label>Vehicle year, make &amp; model *<input name="vehicle" autocomplete="off" required placeholder="Year, make &amp; model" /></label>
+        <label>Trim<input name="trim" placeholder="Trim or package, if known" /></label>
+        <label>ZIP code *<input name="zip" inputmode="numeric" autocomplete="postal-code" pattern="[0-9]{5}" maxlength="5" required placeholder="5-digit ZIP" /></label>
+        <label>Service needed<select name="service"><option value="" selected>Select one, if known</option><option>Windshield repair or replacement</option><option>ADAS calibration</option><option>Rock-chip repair</option><option>Custom-cut glass</option><option>Heavy equipment installation</option><option>Side or rear glass</option><option>Not sure yet</option></select></label>
+        <label>What happened?<textarea name="message" rows="3" placeholder="Describe the damage and any warning lights"></textarea></label>
+        <div class="quote-step-actions">
+          <button class="button button-ink" type="button" data-quote-back>Back</button>
+          <button class="button button-blue" type="submit">Prepare email request</button>
+        </div>
+        <small class="form-note">This opens your email app with a formatted draft. Nothing is sent or stored by this website. To share photos, attach them directly in your email app.</small>
+      </fieldset>
     </form>
     <div class="success-state" data-quote-success role="status" aria-live="polite" hidden>
       <div class="success-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></div>

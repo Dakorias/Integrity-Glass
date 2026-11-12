@@ -5,6 +5,7 @@ import { business } from './data'
 
 const navigation = [
   { to: '/services', label: 'Services' },
+  { to: '/adas-calibration', label: 'ADAS' },
   { to: '/pricing', label: 'Pricing' },
   { to: '/promise', label: 'Our promise' },
   { to: '/faq', label: 'FAQ' },
@@ -48,7 +49,7 @@ export default function Layout() {
         </div>
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} Integrity Glass</span>
-          <span>*Pricing, service area, availability, and warranty terms must be confirmed with the business.</span>
+          <span>*Pricing, exact ZIP-code coverage, availability, and warranty terms must be confirmed with the business.</span>
           <Link to="/">Back to home ↑</Link>
         </div>
       </footer>

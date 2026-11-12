@@ -1,8 +1,8 @@
 {
   "/": {
     "title": "Integrity Glass | Auto Glass Repair & ADAS Calibration",
-    "description": "Integrity Glass offers windshield repair and replacement, rock-chip repair, ADAS calibration, custom-cut glass, and heavy equipment glass installation. Call 478-244-9596.",
-    "keywords": "Integrity Glass, auto glass repair, windshield repair, windshield replacement, rock chip repair, ADAS calibration, custom cut glass, heavy equipment glass installation"
+    "description": "Integrity Glass serves Middle Georgia with windshield repair and replacement, rock-chip repair, ADAS calibration, custom-cut glass, and heavy equipment glass installation. Call 478-244-9596.",
+    "keywords": "Integrity Glass, auto glass repair Middle Georgia, windshield replacement 478, rock chip repair Middle Georgia, ADAS calibration Middle Georgia, heavy equipment glass"
   },
   "/services": {
     "title": "Auto Glass Services | Integrity Glass",
@@ -28,5 +28,10 @@
     "title": "Contact Integrity Glass | Request an Auto Glass Quote",
     "description": "Contact Integrity Glass for windshield repair and replacement, rock-chip repair, ADAS calibration, custom-cut glass, and heavy equipment installation. Call 478-244-9596.",
     "keywords": "contact Integrity Glass, auto glass quote, windshield estimate, ADAS calibration appointment, custom glass, heavy equipment glass installation"
+  },
+  "/adas-calibration": {
+    "title": "ADAS Calibration After Windshield Replacement | Integrity Glass",
+    "description": "Learn when windshield service may require driver-assistance camera calibration, how static and dynamic procedures differ, and what vehicle details help confirm requirements in Middle Georgia.",
+    "keywords": "ADAS camera calibration Middle Georgia, windshield camera calibration, static calibration, dynamic calibration, ADAS windshield replacement"
   }
 }

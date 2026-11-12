@@ -5,7 +5,7 @@ export const business = {
   phone: '478-244-9596',
   phoneLink: 'tel:+14782449596',
   email: 'Integrityglass.26@gmail.com',
-  serviceArea: 'Middle Georgia area (sample; confirm coverage)',
+  serviceArea: 'Middle Georgia',
   website: 'https://integrityglassservices.com',
   googleReviewUrl: '',
 }
@@ -98,7 +98,7 @@ export const faqs = [
   },
   {
     question: 'What is the service area?',
-    answer: 'Middle Georgia is shown as a sample service area on this site. Confirm your exact ZIP code and availability with Integrity Glass before scheduling.',
+    answer: 'Integrity Glass serves Middle Georgia. Confirm your exact ZIP code and appointment availability before scheduling.',
   },
   {
     question: 'Will my vehicle need camera calibration?',
