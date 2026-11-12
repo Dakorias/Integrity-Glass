@@ -41,6 +41,7 @@ The workflow needs repository Actions permission to write contents so it can cre
 
 ## Edit business details
 
+- Google Tag Manager container `GTM-WKQHDL34` loads from the shared `index.html` head on every page entry. Configure and publish the Google Analytics tag in that container; because navigation uses React Router, configure and verify page views for client-side history changes as well as initial page loads. Avoid sending quote form fields or other customer information to analytics.
 - Edit each page's content directly in `src/pages/`: `home.html`, `services.html`, `pricing.html`, `promise.html`, `faq.html`, and `contact.html`. The files contain HTML fragments inserted into the shared layout; internal links use normal `<a>` elements.
 - Edit the shared navigation and footer in `src/Layout.tsx`, styling in `src/styles.css`, and route metadata in `src/pageMetadata.json`. The old `src/Pages.tsx` is retained as a migration reference, but is no longer used for rendering pages.
 - Contact details appear in the HTML pages and shared layout. Update the shared phone/email settings in `src/data.ts` and the corresponding text and links in the HTML files. Service options in `src/pages/contact.html` should be kept in sync with `src/pages/services.html`.
